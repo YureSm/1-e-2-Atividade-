@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora de Tempo de Viagem</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        input, button {
+            margin: 8px 0;
+            padding: 8px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Calculadora de Tempo de Viagem</h2>
+    <label for="distancia">Distância (km):</label><br>
+    <input type="number" id="distancia" step="any"><br>
+
+    <label for="velocidade">Velocidade (km/h):</label><br>
+    <input type="number" id="velocidade" step="any"><br>
+
+    <button onclick="calcularTempo()">Calcular</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        function calcularTempo() {
+            const distancia = parseFloat(document.getElementById("distancia").value);
+            const velocidade = parseFloat(document.getElementById("velocidade").value);
+
+            if (distancia > 0 && velocidade > 0) {
+                const tempo = distancia / velocidade;
+                document.getElementById("resultado").innerText = `Tempo de viagem: ${tempo.toFixed(2)} horas`;
+            } else {
+                document.getElementById("resultado").innerText = "Informe valores válidos para distância e velocidade.";
+            }
+        }
+    </script>
+</body>
+</html>

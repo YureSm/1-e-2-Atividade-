@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quadrado da Matriz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        table {
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        input {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Quadrado dos Elementos da Matriz</h1>
+    <table>
+        <tr>
+            <th>Posição</th>
+            <th>Valor</th>
+        </tr>
+        <tr>
+            <td>[0][0]</td>
+            <td><input type="number" id="matriz00" /></td>
+        </tr>
+        <tr>
+            <td>[0][1]</td>
+            <td><input type="number" id="matriz01" /></td>
+        </tr>
+        <tr>
+            <td>[0][2]</td>
+            <td><input type="number" id="matriz02" /></td>
+        </tr>
+        <tr>
+            <td>[1][0]</td>
+            <td><input type="number" id="matriz10" /></td>
+        </tr>
+        <tr>
+            <td>[1][1]</td>
+            <td><input type="number" id="matriz11" /></td>
+        </tr>
+        <tr>
+            <td>[1][2]</td>
+            <td><input type="number" id="matriz12" /></td>
+        </tr>
+        <tr>
+            <td>[2][0]</td>
+            <td><input type="number" id="matriz20" /></td>
+        </tr>
+        <tr>
+            <td>[2][1]</td>
+            <td><input type="number" id="matriz21" /></td>
+        </tr>
+        <tr>
+            <td>[2][2]</td>
+            <td><input type="number" id="matriz22" /></td>
+        </tr>
+    </table>
+
+    <button onclick="calcularQuadrados()">Calcular Quadrados</button>
+
+    <h2>Matriz dos Quadrados:</h2>
+    <table id="resultado">
+        <tr>
+            <th>Posição</th>
+            <th>Valor</th>
+        </tr>
+        <tr>
+            <td>[0][0]</td>
+            <td id="quadrado00"></td>
+        </tr>
+        <tr>
+            <td>[0][1]</td>
+            <td id="quadrado01"></td>
+        </tr>
+        <tr>
+            <td>[0][2]</td>
+            <td id="quadrado02"></td>
+        </tr>
+        <tr>
+            <td>[1][0]</td>
+            <td id="quadrado10"></td>
+        </tr>
+        <tr>
+            <td>[1][1]</td>
+            <td id="quadrado11"></td>
+        </tr>
+        <tr>
+            <td>[1][2]</td>
+            <td id="quadrado12"></td>
+        </tr>
+        <tr>
+            <td>[2][0]</td>
+            <td id="quadrado20"></td>
+        </tr>
+        <tr>
+            <td>[2][1]</td>
+            <td id="quadrado21"></td>
+        </tr>
+        <tr>
+            <td>[2][2]</td>
+            <td id="quadrado22"></td>
+        </tr>
+    </table>
+
+    <script>
+        function calcularQuadrados() {
+            // Matriz de entrada
+            var matriz = [
+                [document.getElementById('matriz00').value, document.getElementById('matriz01').value, document.getElementById('matriz02').value],
+                [document.getElementById('matriz10').value, document.getElementById('matriz11').value, document.getElementById('matriz12').value],
+                [document.getElementById('matriz20').value, document.getElementById('matriz21').value, document.getElementById('matriz22').value]
+            ];
+
+            // Matriz dos quadrados
+            var quadrado = [
+                [Math.pow(matriz[0][0], 2), Math.pow(matriz[0][1], 2), Math.pow(matriz[0][2], 2)],
+                [Math.pow(matriz[1][0], 2), Math.pow(matriz[1][1], 2), Math.pow(matriz[1][2], 2)],
+                [Math.pow(matriz[2][0], 2), Math.pow(matriz[2][1], 2), Math.pow(matriz[2][2], 2)]
+            ];
+
+            // Exibindo os resultados
+            for (var i = 0; i < 3; i++) {
+                for (var j = 0; j < 3; j++) {
+                    document.getElementById('quadrado' + i + j).textContent = quadrado[i][j];
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>

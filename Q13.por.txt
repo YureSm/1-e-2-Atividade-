@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Verificador de Número</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Digite um número:</h2>
+    <input type="number" id="numero" placeholder="Ex: 10">
+    <button onclick="verificarNumero()">Verificar</button>
+    <p id="resultado"></p>
+
+    <script>
+        function verificarNumero() {
+            const numero = parseFloat(document.getElementById('numero').value);
+            let resultado;
+
+            if (numero > 0) {
+                resultado = "Positivo";
+            } else if (numero < 0) {
+                resultado = "Negativo";
+            } else {
+                resultado = "Zero";
+            }
+
+            document.getElementById('resultado').textContent = resultado;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificação de Senha</title>
+</head>
+<body>
+    <h2>Digite a senha para acessar:</h2>
+    <form id="senhaForm">
+        <label for="senha">Senha: </label>
+        <input type="password" id="senha" required>
+        <button type="submit">Entrar</button>
+    </form>
+    <p id="mensagem"></p>
+
+    <script>
+        const form = document.getElementById('senhaForm');
+        const mensagem = document.getElementById('mensagem');
+        const senhaCorreta = 1234;
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const senha = parseInt(document.getElementById('senha').value);
+
+            if (senha === senhaCorreta) {
+                mensagem.textContent = "Acesso permitido!";
+                mensagem.style.color = 'green';
+            } else {
+                mensagem.textContent = "Senha incorreta, tente novamente.";
+                mensagem.style.color = 'red';
+            }
+        });
+    </script>
+</body>
+</html>

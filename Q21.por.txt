@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Contador de 1 a 100</title>
+</head>
+<body>
+    <h1>Números de 1 a 100</h1>
+    <div id="resultado"></div>
+
+    <script>
+        const resultado = document.getElementById("resultado");
+
+        for (let i = 1; i <= 100; i++) {
+            resultado.innerHTML += i + "<br>";
+        }
+    </script>
+</body>
+</html>

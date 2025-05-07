@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Matriz 4x4 - Soma</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        table {
+            border-collapse: collapse;
+            margin-bottom: 15px;
+        }
+        td {
+            padding: 5px;
+        }
+        input[type="number"] {
+            width: 60px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Preencha a matriz 4x4</h2>
+    <form id="matrizForm">
+        <table>
+            <tbody>
+                <!-- Geração da tabela 4x4 -->
+                <script>
+                    for (let i = 0; i < 4; i++) {
+                        document.write("<tr>");
+                        for (let j = 0; j < 4; j++) {
+                            document.write(`<td><input type="number" name="m${i}${j}" required></td>`);
+                        }
+                        document.write("</tr>");
+                    }
+                </script>
+            </tbody>
+        </table>
+        <button type="submit">Calcular Soma</button>
+    </form>
+
+    <h3 id="resultado"></h3>
+
+    <script>
+        const form = document.getElementById("matrizForm");
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+            let soma = 0;
+
+            for (let i = 0; i < 4; i++) {
+                for (let j = 0; j < 4; j++) {
+                    const valor = parseInt(form[`m${i}${j}`].value);
+                    soma += isNaN(valor) ? 0 : valor;
+                }
+            }
+
+            document.getElementById("resultado").textContent = "Soma de todos os elementos: " + soma;
+        });
+    </script>
+</body>
+</html>

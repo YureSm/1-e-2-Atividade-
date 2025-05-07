@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Matriz 3x3</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        input { width: 50px; text-align: center; margin: 5px; }
+        .matriz { margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <h2>Digite os elementos da matriz 3x3:</h2>
+    <div class="matriz" id="inputs">
+        <!-- Inputs da matriz -->
+        <script>
+            for (let i = 0; i < 3; i++) {
+                for (let j = 0; j < 3; j++) {
+                    document.write(`<input type="number" id="m${i}${j}" placeholder="[${i}][${j}]">`);
+                }
+                document.write("<br>");
+            }
+        </script>
+    </div>
+    <button onclick="mostrarMatriz()">Exibir Matriz</button>
+    <h3>Matriz digitada:</h3>
+    <div id="resultado"></div>
+
+    <script>
+        function mostrarMatriz() {
+            let matriz = [];
+            let output = "";
+
+            for (let i = 0; i < 3; i++) {
+                matriz[i] = [];
+                for (let j = 0; j < 3; j++) {
+                    const valor = document.getElementById(`m${i}${j}`).value;
+                    matriz[i][j] = valor ? parseInt(valor) : 0;
+                    output += matriz[i][j] + " ";
+                }
+                output += "<br>";
+            }
+
+            document.getElementById("resultado").innerHTML = output;
+        }
+    </script>
+</body>
+</html>

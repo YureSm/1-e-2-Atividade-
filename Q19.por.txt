@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora de Desconto</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+    }
+    input, button {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+  <h2>Calculadora de Desconto</h2>
+  <label>Valor da compra: R$ <input type="number" id="valor" step="0.01"></label><br>
+  <button onclick="calcularDesconto()">Calcular</button>
+  <p id="resultado"></p>
+
+  <script>
+    function calcularDesconto() {
+      const valor = parseFloat(document.getElementById('valor').value);
+      const resultado = document.getElementById('resultado');
+      
+      if (isNaN(valor) || valor <= 0) {
+        resultado.textContent = 'Informe um valor válido.';
+        return;
+      }
+
+      let desconto = 0;
+      if (valor > 200) {
+        desconto = valor * 0.10;
+      } else {
+        desconto = valor * 0.05;
+      }
+
+      const final = valor - desconto;
+      resultado.textContent = `Valor com desconto: R$ ${final.toFixed(2)}`;
+    }
+  </script>
+</body>
+</html>

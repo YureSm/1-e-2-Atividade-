@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Média de 8 Números</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        input {
+            margin-bottom: 10px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h2>Digite 8 números para calcular a média:</h2>
+    <div id="inputs"></div>
+    <button onclick="calcularMedia()">Calcular Média</button>
+    <p id="resultado"></p>
+
+    <script>
+        const inputsDiv = document.getElementById('inputs');
+        for (let i = 0; i < 8; i++) {
+            const input = document.createElement('input');
+            input.type = 'number';
+            input.placeholder = `Valor ${i + 1}`;
+            input.id = `num${i}`;
+            inputsDiv.appendChild(input);
+        }
+
+        function calcularMedia() {
+            let soma = 0;
+            for (let i = 0; i < 8; i++) {
+                const valor = parseFloat(document.getElementById(`num${i}`).value);
+                if (isNaN(valor)) {
+                    alert(`Por favor, preencha todos os valores corretamente.`);
+                    return;
+                }
+                soma += valor;
+            }
+            const media = soma / 8;
+            document.getElementById('resultado').textContent = `Média: ${media.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>

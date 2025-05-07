@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Vetor ao Contrário</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    input {
+      margin-bottom: 5px;
+      display: block;
+    }
+    button {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Digite 5 valores:</h2>
+  <div id="inputs">
+    <input type="number" placeholder="Valor 1">
+    <input type="number" placeholder="Valor 2">
+    <input type="number" placeholder="Valor 3">
+    <input type="number" placeholder="Valor 4">
+    <input type="number" placeholder="Valor 5">
+  </div>
+  <button onclick="mostrarAoContrario()">Mostrar ao Contrário</button>
+
+  <h3>Valores ao contrário:</h3>
+  <div id="resultado"></div>
+
+  <script>
+    function mostrarAoContrario() {
+      const inputs = document.querySelectorAll('#inputs input');
+      const vetor = [];
+
+      inputs.forEach(input => {
+        vetor.push(Number(input.value));
+      });
+
+      const resultado = document.getElementById('resultado');
+      resultado.innerHTML = vetor.reverse().join('<br>');
+    }
+  </script>
+</body>
+</html>

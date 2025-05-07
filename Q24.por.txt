@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Média de 5 Números</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    input {
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Digite 5 números</h2>
+  <form id="mediaForm">
+    <div>
+      <label>Número 1: <input type="number" step="any" required></label><br>
+      <label>Número 2: <input type="number" step="any" required></label><br>
+      <label>Número 3: <input type="number" step="any" required></label><br>
+      <label>Número 4: <input type="number" step="any" required></label><br>
+      <label>Número 5: <input type="number" step="any" required></label><br>
+    </div>
+    <button type="submit">Calcular Média</button>
+  </form>
+  <h3 id="resultado"></h3>
+
+  <script>
+    document.getElementById("mediaForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const inputs = document.querySelectorAll("input");
+      let soma = 0;
+
+      inputs.forEach(input => {
+        soma += parseFloat(input.value);
+      });
+
+      const media = soma / 5;
+      document.getElementById("resultado").textContent = "Média: " + media.toFixed(2);
+    });
+  </script>
+</body>
+</html>

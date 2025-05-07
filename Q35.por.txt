@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Coletar Nomes</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    input { margin: 5px 0; display: block; }
+    button { margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <h2>Digite 5 nomes:</h2>
+  <div id="formulario">
+    <input type="text" placeholder="Nome 1" id="nome0">
+    <input type="text" placeholder="Nome 2" id="nome1">
+    <input type="text" placeholder="Nome 3" id="nome2">
+    <input type="text" placeholder="Nome 4" id="nome3">
+    <input type="text" placeholder="Nome 5" id="nome4">
+    <button onclick="mostrarNomes()">Enviar</button>
+  </div>
+  <h3>Nomes digitados:</h3>
+  <ul id="listaNomes"></ul>
+
+  <script>
+    function mostrarNomes() {
+      const lista = document.getElementById("listaNomes");
+      lista.innerHTML = ""; // Limpa a lista anterior
+
+      for (let i = 0; i < 5; i++) {
+        const nome = document.getElementById("nome" + i).value;
+        const item = document.createElement("li");
+        item.textContent = nome;
+        lista.appendChild(item);
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Maior Número</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+    }
+    input {
+      margin-bottom: 10px;
+    }
+    button {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Digite 10 números:</h2>
+  <div id="inputs"></div>
+  <button onclick="encontrarMaior()">Encontrar Maior Número</button>
+  <p id="resultado"></p>
+
+  <script>
+    const inputsDiv = document.getElementById('inputs');
+    for (let i = 0; i < 10; i++) {
+      const input = document.createElement('input');
+      input.type = 'number';
+      input.placeholder = `Número ${i + 1}`;
+      input.id = `num${i}`;
+      inputsDiv.appendChild(input);
+      inputsDiv.appendChild(document.createElement('br'));
+    }
+
+    function encontrarMaior() {
+      let maior = Number(document.getElementById('num0').value);
+      for (let i = 1; i < 10; i++) {
+        let valor = Number(document.getElementById(`num${i}`).value);
+        if (valor > maior) {
+          maior = valor;
+        }
+      }
+      document.getElementById('resultado').textContent = `Maior número: ${maior}`;
+    }
+  </script>
+</body>
+</html>

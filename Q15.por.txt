@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Comparar Números</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+    }
+    input, button {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+  <h2>Comparar dois valores</h2>
+  <label>Valor A: <input type="number" id="valorA"></label><br>
+  <label>Valor B: <input type="number" id="valorB"></label><br>
+  <button onclick="comparar()">Comparar</button>
+  <p id="resultado"></p>
+
+  <script>
+    function comparar() {
+      const a = parseFloat(document.getElementById('valorA').value);
+      const b = parseFloat(document.getElementById('valorB').value);
+      const resultado = document.getElementById('resultado');
+
+      if (a > b) {
+        resultado.textContent = 'Maior: ' + a;
+      } else if (b > a) {
+        resultado.textContent = 'Maior: ' + b;
+      } else {
+        resultado.textContent = 'Iguais';
+      }
+    }
+  </script>
+</body>
+</html>

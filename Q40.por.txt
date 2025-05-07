@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contar Números Pares na Matriz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        input {
+            width: 50px;
+            margin: 5px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #resultado {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Contar Números Pares em uma Matriz 3x3</h2>
+    
+    <form id="matrizForm">
+        <div id="matrizInputs">
+            <!-- Inputs serão gerados via JavaScript -->
+        </div>
+        <button type="button" onclick="contarPares()">Contar Números Pares</button>
+    </form>
+    
+    <div id="resultado"></div>
+
+    <script>
+        // Gerar os campos de entrada para a matriz 3x3
+        const matrizInputsDiv = document.getElementById("matrizInputs");
+        let inputHTML = "";
+        for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < 3; j++) {
+                inputHTML += `<label for="matriz_${i}_${j}">Elemento [${i}][${j}]: </label>
+                              <input type="number" id="matriz_${i}_${j}" name="matriz_${i}_${j}" required><br>`;
+            }
+        }
+        matrizInputsDiv.innerHTML = inputHTML;
+
+        // Função para contar números pares
+        function contarPares() {
+            let cont = 0;
+            const matriz = [];
+
+            // Preencher a matriz com os valores dos inputs
+            for (let i = 0; i < 3; i++) {
+                matriz[i] = [];
+                for (let j = 0; j < 3; j++) {
+                    const valor = parseInt(document.getElementById(`matriz_${i}_${j}`).value);
+                    matriz[i][j] = valor;
+                    // Verificar se o valor é par
+                    if (valor % 2 === 0) {
+                        cont++;
+                    }
+                }
+            }
+
+            // Exibir o resultado
+            document.getElementById("resultado").innerHTML = `Quantidade de números pares: ${cont}`;
+        }
+    </script>
+
+</body>
+</html>

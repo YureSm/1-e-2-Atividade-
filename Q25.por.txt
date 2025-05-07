@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Contador de Pares</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Contador de Números Pares de 1 a 50</h1>
+    <p id="resultado"></p>
+
+    <script>
+        let cont = 0;
+        for (let i = 1; i <= 50; i++) {
+            if (i % 2 === 0) {
+                cont++;
+            }
+        }
+        document.getElementById("resultado").textContent = "Quantidade de pares: " + cont;
+    </script>
+</body>
+</html>

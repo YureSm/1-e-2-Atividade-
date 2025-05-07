@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Soma de 1 a 10</title>
+</head>
+<body>
+    <h1>Soma de 1 até 10</h1>
+    <button onclick="calcularSoma()">Calcular</button>
+    <p id="resultado"></p>
+
+    <script>
+        function calcularSoma() {
+            let soma = 0;
+            for (let i = 1; i <= 10; i++) {
+                soma += i;
+            }
+            document.getElementById("resultado").innerText = "Soma: " + soma;
+        }
+    </script>
+</body>
+</html>

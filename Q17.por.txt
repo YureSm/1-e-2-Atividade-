@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Tipo de Triângulo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+    }
+    input, button {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+  <h2>Classificador de Triângulos</h2>
+  <label>Lado A: <input type="number" id="ladoA" step="any"></label><br>
+  <label>Lado B: <input type="number" id="ladoB" step="any"></label><br>
+  <label>Lado C: <input type="number" id="ladoC" step="any"></label><br>
+  <button onclick="classificarTriangulo()">Classificar</button>
+  <p id="resultado"></p>
+
+  <script>
+    function classificarTriangulo() {
+      const a = parseFloat(document.getElementById('ladoA').value);
+      const b = parseFloat(document.getElementById('ladoB').value);
+      const c = parseFloat(document.getElementById('ladoC').value);
+      const resultado = document.getElementById('resultado');
+
+      // Verifica se os lados formam um triângulo válido
+      if (a <= 0 || b <= 0 || c <= 0 || a + b <= c || a + c <= b || b + c <= a) {
+        resultado.textContent = 'Lados inválidos para formar um triângulo.';
+        return;
+      }
+
+      if (a === b && b === c) {
+        resultado.textContent = 'Equilátero';
+      } else if (a === b || a === c || b === c) {
+        resultado.textContent = 'Isósceles';
+      } else {
+        resultado.textContent = 'Escaleno';
+      }
+    }
+  </script>
+</body>
+</html>

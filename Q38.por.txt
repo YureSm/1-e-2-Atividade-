@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matriz e Diagonal Principal</title>
+</head>
+<body>
+    <h1>Preencha a Matriz 5x5</h1>
+    <form id="form">
+        <table border="1">
+            <tbody>
+                <!-- Criar uma tabela 5x5 para entrada de dados -->
+                <script>
+                    for (let i = 0; i < 5; i++) {
+                        let row = document.createElement('tr');
+                        for (let j = 0; j < 5; j++) {
+                            let cell = document.createElement('td');
+                            let input = document.createElement('input');
+                            input.type = 'number';
+                            input.id = `input-${i}-${j}`;
+                            input.placeholder = `Elemento [${i}][${j}]`;
+                            cell.appendChild(input);
+                            row.appendChild(cell);
+                        }
+                        document.querySelector('tbody').appendChild(row);
+                    }
+                </script>
+            </tbody>
+        </table>
+        <br>
+        <button type="button" onclick="mostrarDiagonal()">Mostrar Diagonal Principal</button>
+    </form>
+
+    <h2>Diagonal Principal:</h2>
+    <p id="resultado"></p>
+
+    <script>
+        function mostrarDiagonal() {
+            let matriz = [];
+            for (let i = 0; i < 5; i++) {
+                matriz[i] = [];
+                for (let j = 0; j < 5; j++) {
+                    let valor = document.getElementById(`input-${i}-${j}`).value;
+                    matriz[i][j] = parseInt(valor);
+                }
+            }
+
+            let resultado = "Diagonal Principal: ";
+            for (let i = 0; i < 5; i++) {
+                resultado += matriz[i][i] + " ";
+            }
+
+            document.getElementById("resultado").textContent = resultado;
+        }
+    </script>
+</body>
+</html>
