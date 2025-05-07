@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cálculo de Área</title>
+</head>
+<body>
+    <h2>Cálculo da Área do Retângulo</h2>
+    <label for="base">Base: </label>
+    <input type="number" id="base" step="any"><br><br>
+
+    <label for="altura">Altura: </label>
+    <input type="number" id="altura" step="any"><br><br>
+
+    <button onclick="calcularArea()">Calcular Área</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        function calcularArea() {
+            const base = parseFloat(document.getElementById('base').value);
+            const altura = parseFloat(document.getElementById('altura').value);
+            const area = base * altura;
+
+            document.getElementById('resultado').innerText = "Área: " + area;
+        }
+    </script>
+</body>
+</html>
